@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { doRequest } from "../../services/ApiBase";
 import SearchBar from "../searchBar/searchBar";
-import "./styles.styl";
 import PokemonItem from "./pokemonItem";
+
 function PokemonGrid() {
   const [pokemonApiList, setPokemonApiList] = useState<Array<object>>([]);
 

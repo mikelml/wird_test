@@ -7,6 +7,7 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import { getPokemonId } from "../../utils/pokemonUtils";
+
 const PokemonItem = ({ item, isList }) => {
   const {
     dispatch,

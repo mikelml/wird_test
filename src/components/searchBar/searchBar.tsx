@@ -1,4 +1,3 @@
-import "./styles.styl";
 function SearchBar({ onHandleSubmit, onChangeValue }) {
   return (
     <>

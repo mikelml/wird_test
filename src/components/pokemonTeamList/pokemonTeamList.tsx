@@ -1,6 +1,5 @@
 import { useAppContext } from "../../context/appContext";
 import { IPokemon } from "../../types/types";
-import "./styles.styl";
 import PokemonItem from "../pokemonGrid/pokemonItem";
 
 function PokemonTeamList() {

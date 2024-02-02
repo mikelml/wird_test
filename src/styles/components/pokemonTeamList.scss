@@ -1,7 +1,9 @@
+@import "../pallete.colors.scss";
+
 .pokemon-list-container {
   width: 25%;
   padding: 20px;
-  background-color: #d9d9d9;
+  background-color: $lightSilver;
   display: flex;
   flex-direction: column;
   position: fixed;
@@ -30,13 +32,13 @@
     h2 {
       margin: 0;
       padding: 0;
-      color: black;
+      color: $black;
       text-transform: capitalize;
     }
     div {
       width: 100%;
       height: 100%;
-      background-color: #aeabab;
+      background-color: $silverChalice;
       img {
         width: 90%;
         height: 90%;
