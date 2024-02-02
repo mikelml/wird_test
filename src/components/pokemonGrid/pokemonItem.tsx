@@ -26,7 +26,7 @@ const PokemonItem = ({ item, isList }) => {
               name: pokemon.species.name,
               number: pokemon.order,
               height: pokemon.height,
-              type: item.types[0]?.type.name,
+              type: item.types?.[0].type.name,
               stast: pokemon.stats,
             },
           ],
