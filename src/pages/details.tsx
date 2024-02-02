@@ -1,13 +1,13 @@
 import PokemonTeamList from "../components/pokemonTeamList/pokemonTeamList";
-
-import "../App.css";
 import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { doRequest } from "../services/ApiBase";
 import { useAppContext } from "../context/appContext";
 import ACTIONS from "../context/appActions";
 import { IPokemon } from "../types/types";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import "./details.styl";
+import "../App.css";
 function Details() {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState({});
@@ -24,7 +24,7 @@ function Details() {
         number: item.order,
         height: item.height,
         type: item.types[0]?.type.name,
-        stast: item.stats,
+        stats: item.stats,
       });
     });
   }, [id]);
@@ -51,7 +51,7 @@ function Details() {
                 number: pokemon.order,
                 height: pokemon.height,
                 type: item.types?.[0].type.name,
-                stast: pokemon.stats,
+                stats: pokemon.stats,
               },
             ],
           },
@@ -75,24 +75,55 @@ function Details() {
     <>
       <div className="pokemon-details-container">
         <div className="navbar">
-          <Link to="/">volver</Link>
+          <Link to="/">
+            <FaArrowLeftLong />
+            <h2>volver</h2>
+          </Link>
           {isContained() ? (
             <button onClick={() => removePokemon(pokemon)}>
-              eliminar de la lista
+              Eliminar de la lista
             </button>
           ) : (
             <button onClick={() => addPokemon(pokemon)}>
-              agregar a la lista
+              Agregar a la lista
             </button>
           )}
         </div>
         <div className="pokemon-details">
           <img src={pokemon.img} />
-          <div>
-            <div>Name: {pokemon.name}</div>
-            <div>Pokedex #: {pokemon.number}</div>
-            <div>Height: {pokemon.height}</div>
-            <div>Type: {pokemon.type}</div>
+          <div className="pokemon-details-description">
+            <div className="description-grl">
+              <div>Name: {pokemon.name}</div>
+              <div>Pokedex #: {pokemon.number}</div>
+              <div>Height: {pokemon.height}</div>
+              <div>Type: {pokemon.type}</div>
+            </div>
+            <div className="description-stats">
+              <div className="stat-item">
+                <div className="stat-tittle">HP:</div>
+                {pokemon.stats?.[0]?.base_stat}
+              </div>
+              <div className="stat-item">
+                <div className="stat-tittle">ATK:</div>
+                {pokemon.stats?.[1]?.base_stat}
+              </div>
+              <div className="stat-item">
+                <div className="stat-tittle">DEF:</div>
+                {pokemon.stats?.[2]?.base_stat}
+              </div>
+              <div className="stat-item">
+                <div className="stat-tittle">S ATK:</div>
+                {pokemon.stats?.[3]?.base_stat}
+              </div>
+              <div className="stat-item">
+                <div className="stat-tittle">S DEF:</div>
+                {pokemon.stats?.[4]?.base_stat}
+              </div>
+              <div className="stat-item">
+                <div className="stat-tittle">SPD:</div>
+                {pokemon.stats?.[5]?.base_stat}
+              </div>
+            </div>
           </div>
         </div>
       </div>

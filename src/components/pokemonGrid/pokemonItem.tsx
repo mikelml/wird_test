@@ -35,7 +35,7 @@ const PokemonItem = ({ item, isList }) => {
                 number: pokemon.order,
                 height: pokemon.height,
                 type: item.types?.[0].type.name,
-                stast: pokemon.stats,
+                statS: pokemon.stats,
               },
             ],
           },
@@ -59,7 +59,9 @@ const PokemonItem = ({ item, isList }) => {
   return (
     <div className="pokemon-item">
       {isList ? (
-        <img src={item.img} />
+        <div>
+          <img src={item.img} />
+        </div>
       ) : (
         <img src={`${POKE_API_SPRITES}${getPokemonId(item.url)}.png`} />
       )}

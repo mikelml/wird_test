@@ -26,7 +26,7 @@ export interface IPokemon {
   number: string;
   height: string;
   type: string;
-  stast: IPokemonStats;
+  stats: IPokemonStats;
 }
 
 export interface IAppActions {

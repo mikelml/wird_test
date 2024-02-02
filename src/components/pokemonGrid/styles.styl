@@ -1,68 +1,74 @@
 .pokemon-grid-container {
-    width: 65%;
-    padding: 2em;
-    padding-right: 70px;
-    background-color: white;
-    display: flex;
-    flex-direction: column;   
+  width: 63%;
+  padding: 4em;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
 }
 
 .pokemon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 0.25fr));
+  grid-gap: 20px;
 }
 
 .pokemon-item {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    img {
-        width: 100%;
-        object-fit: contain;
-        height: 100%;
-        padding: 0;
-        margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  img {
+    width: 100%;
+    object-fit: contain;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #d9d9d9;
+    border-radius: 1px;
+  }
+  a {
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+    text-transform: capitalize;
+    & :hover {
+      color: rgb(116, 65, 216);
+      font-size: 16px;
     }
-    a {
-        margin: 0;
-        padding: 0;
-        cursor: pointer;
-        & :hover {
-            color: rgb(116, 65, 216);
-            font-size: 16px;
-        }
+  }
+  .delete-button {
+    background-color: white;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    svg {
+      width: 15px;
+      height: 15px;
+      top: 2px;
+      left: 2px;
     }
-    .delete-button {
-        background-color: white;
-        width: 22px;
-        height: 22px;
-        svg {
-            width: 15px;
-            height: 15px;
-            top: 2px;
-            left: 2px;
-        }
+  }
+  button {
+    position: absolute;
+    top: 0px;
+    right: 20px;
+    border-radius: 20px;
+    width: 19px;
+    height: 19px;
+    background-color: transparent;
+    border-color: transparent;
+    cursor: pointer;
+    svg {
+      width: 20px;
+      height: 20px;
+      color: black;
+      position: absolute;
     }
-    button {
-        position: absolute;
-        top: 30px;
-        right: 30px;
-        border-radius: 20px;
-        width: 19px;
-        height: 19px;
-        background-color: transparent;
-        border-color: transparent;
-        cursor: pointer;
-        svg {
-            width: 20px;
-            height: 20px;
-            color: black;
-            position: absolute;
-        }
-        & :hover {
-            color: #828181;
-            border-radius: 20px;
-        }
+    & :hover {
+      color: #828181;
+      border-radius: 20px;
     }
+  }
 }
