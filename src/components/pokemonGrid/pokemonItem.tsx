@@ -13,26 +13,35 @@ const PokemonItem = ({ item, isList }) => {
     store: { pokemonTeam },
   } = useAppContext();
 
+  const isContained = (pokemon) => {
+    for (let i = 0; i < pokemonTeam.length; i++) {
+      if (pokemon.name === pokemonTeam[i].name) return true;
+    }
+    return false;
+  };
   const addPokemon = (item: IPokemon) => {
-    doRequest(`pokemon/${item.name}`).then((pokemon: object) => {
-      dispatch({
-        type: ACTIONS.UPDATE_STATE,
-        data: {
-          pokemonTeam: [
-            ...pokemonTeam,
-            {
-              id: pokemon?.id,
-              img: pokemon?.sprites?.front_default,
-              name: pokemon.species.name,
-              number: pokemon.order,
-              height: pokemon.height,
-              type: item.types?.[0].type.name,
-              stast: pokemon.stats,
-            },
-          ],
-        },
+    const isPokemonContained = isContained(item);
+    if (pokemonTeam.length <= 5 && !isPokemonContained) {
+      doRequest(`pokemon/${item.name}`).then((pokemon: object) => {
+        dispatch({
+          type: ACTIONS.UPDATE_STATE,
+          data: {
+            pokemonTeam: [
+              ...pokemonTeam,
+              {
+                id: pokemon?.id,
+                img: pokemon?.sprites?.front_default,
+                name: pokemon.species.name,
+                number: pokemon.order,
+                height: pokemon.height,
+                type: item.types?.[0].type.name,
+                stast: pokemon.stats,
+              },
+            ],
+          },
+        });
       });
-    });
+    }
   };
 
   const removePokemon = (item: IPokemon) => {
